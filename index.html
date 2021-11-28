@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+    
+    <head>
+        <title>To-Do List</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    
+    <body>
+        <div class="container">
+            <h1>To-do List</h1>
+            
+            <div class="add-elements">
+                <input id="add" type="text" placeholder="add an element">
+                <button id="btn">Add</button>
+            </div>
+            
+            <div class="element-list">
+                <ul id="list">
+                    <li>To_do list_1</li>
+                    <li>To_do list_2</li>
+                    <li>To_do list_3</li>
+                    <li>To_do list_4</li>
+                    <li>To_do list_5</li>
+                    <li>To_do list_6</li>
+                    <li>To_do list_7</li>
+                    <li>To_do list_8</li>
+                    <li>To_do list_9</li>
+                    <li>To_do list_10</li>
+                </ul>
+            </div>
+           
+            
+        </div>
+        
+        <script src="script.js">
+            const input = document.querySelector("#add");
+            const  btn = document.querySelector("#btn");
+            const list = document.querySelector("#list");
+            var el = document.getElementsByTagName('li');
+
+
+    btn.onclick = function(){
+    
+    var txt = input.value;
+    if(txt ==''){
+        alert('you must write something');
+    }else{
+        li = document.createElement('li');
+    li.innerHTML = txt;
+    list.insertBefore(li,list.childNodes[0]);
+    input.value = '';
+    }
+    
+};
+
+
+    list.onclick = function(ev){
+    if(ev.target.tagName == 'LI'){
+         ev.target.classList.toggle('checked');
+    }
+};
+        </script>
+    </body>
+    
+</html>
